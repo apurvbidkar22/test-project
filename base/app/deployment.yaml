@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 60m
+              memory: 60Mi
+            limits:
+              memory: 500Mi
+      nodeSelector:
+        workload: application
+      tolerations:
+        - key: "karpenter.sh/workload"
+          operator: "Equal"
+          value: "application"
+          effect: "NoSchedule" 
