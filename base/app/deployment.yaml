@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: niraxo-website
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: niraxo-website
   template:
     metadata:
       labels:
-        app: nginx
+        app: niraxo-website
     spec:
       containers:
-        - name: nginx
-          image: nginx:stable
+        - name: niraxo-website
+          image: 726655177496.dkr.ecr.ap-south-1.amazonaws.com/niraxo/frontend-website:10046-20260205143102
           ports:
             - containerPort: 80
           resources:

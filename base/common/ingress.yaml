@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress
+  name: niraxo-website-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
     traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
@@ -16,11 +16,11 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nginx
+                name: niraxo-website
                 port:
                   number: 80
   tls:
     - hosts:
         - placeholder.domain
-      secretName: nginx-tls
+      secretName: niraxo-website-tls
 

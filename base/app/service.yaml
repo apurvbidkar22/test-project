@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: niraxo-website
 spec:
   selector:
-    app: nginx
+    app: niraxo-website
   ports:
     - port: 80
       targetPort: 80

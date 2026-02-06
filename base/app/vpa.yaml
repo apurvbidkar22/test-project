@@ -1,17 +1,17 @@
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: nginx-vpa
+  name: niraxo-website-vpa
 spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: nginx
+    name: niraxo-website
   updatePolicy:
     updateMode: Auto
   resourcePolicy:
     containerPolicies:
-      - containerName: nginx
+      - containerName: niraxo-website
         controlledResources:
           - memory
         minAllowed:
